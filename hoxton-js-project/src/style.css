@@ -52,12 +52,24 @@ header {
 .product-price {
   padding-left: 1rem;
   color: rgba(255, 127, 80, 0.732);
+  font-weight: bold;
+}
+
+.main {
+  display: grid;
+  align-items: center;
+ 
 }
 
 .main-product-container {
   display: grid;
-  place-content: center;
-  grid-template-columns: 500px 500px;
+  align-items: center;
   gap: 2rem;
   margin: 5rem;
 }
+
+.product-image {
+  width: 500px;
+  padding: 0.5rem;
+}
+

@@ -11,15 +11,17 @@ type Product ={
 }
 
 type State = {
-  product: Product[],
-  typeFilters: string[]
+  menu: Product[],
+  typeFilters: string[],
+  selectedFilter: string
 }
 
 
 
 let state: State = {
-  product: [],
-  typeFilters: ['All', 'Breafast', 'Lunch', 'Dinner', 'Shakes']
+  menu: [],
+  typeFilters: ['All', 'Breafast', 'Lunch', 'Dinner', 'Shakes'],
+  selectedFilter: 'All', 
 
 }
 
@@ -27,6 +29,35 @@ let state: State = {
 function getMenuProducts() {
   return fetch ('http://localhost:3005/menu') .then (resp => resp.json())
  }
+
+
+ function getItemsToDisplay() {
+
+  let itemsToDisplay = state.menu
+
+  if(state.selectedFilter === 'Breakfast') {
+    itemsToDisplay = itemsToDisplay.filter(item => item.type === 'Breakfast')
+  }
+
+  if (state.selectedFilter === 'Lunch') {
+    itemsToDisplay = itemsToDisplay.filter(item => item.type === 'Lunch')
+  }
+
+  if (state.selectedFilter === 'Dinner') {
+    itemsToDisplay = itemsToDisplay.filter(item => item.type === 'Dinner')
+  }
+
+  if (state.selectedFilter === 'Shakes') {
+    itemsToDisplay = itemsToDisplay.filter(item => item.type === 'Shakes')
+  }
+
+  return itemsToDisplay
+
+ }
+
+
+
+
 
 function renderHeader() {
 
@@ -49,11 +80,38 @@ function renderHeader() {
   const aHeaderEl = document.createElement("a");
   aHeaderEl.className = "header-links";
   aHeaderEl.setAttribute('src', '#')
+  aHeaderEl.textContent = 'All'
 
   liEl.append(aHeaderEl)
   ulEl.append(liEl,)
   navheaderEl.append(ulEl);
+
+
+
+  let li2El = document.createElement("li");
+  li2El.className = "header-list-elements";
+
+  const a2HeaderEl = document.createElement("a");
+  a2HeaderEl.className = "header-links";
+  a2HeaderEl.setAttribute('src', '#')
+  a2HeaderEl.textContent = 'Breakfast'
+
+  li2El.append(a2HeaderEl)
+  ulEl.append(li2El,)
+  navheaderEl.append(ulEl);
   
+
+  let li3El = document.createElement("li");
+  li3El.className = "header-list-elements";
+
+  const a3HeaderEl = document.createElement("a");
+  a3HeaderEl.className = "header-links";
+  a3HeaderEl.setAttribute('src', '#')
+  a3HeaderEl.textContent = 'Lunch'
+
+  li3El.append(a3HeaderEl)
+  ulEl.append(li3El,)
+  navheaderEl.append(ulEl);
   
   headerEl.append(h1HeaderEl, navheaderEl)
   document.body.append(headerEl)
@@ -63,43 +121,68 @@ function renderHeader() {
 
 
 
-function renderMenuProducts(){
-let mainEl = document.querySelector('main')
-if(mainEl=== null) return
+function renderMenuProducts(product: Product, productList:any) {
 
-mainEl.textContent= '';
-
-let divEl = document.createElement('div')
-divEl.className = 'main-product-container'
-mainEl.append(divEl)
-
-///// ketu mund te perdorim loop
-
-let divProductContainer = document.createElement('div')
-divProductContainer.className = 'product-container'
-
-let imgEl = document.createElement('img')
-imgEl.src= 'https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage108081050-50-TN-American-Style-Dirty-Burger.jpg'
-imgEl.alt= ''
+     
+   let divEl = document.createElement('div')
+   divEl.className = 'main-product-container'
 
 
-let spanMainEl = document.createElement('span')
-spanMainEl.className = 'text'
+   let productWrapper = document.createElement('div')
+   productWrapper.className = 'product-container'
 
-let h3MainEl = document.createElement  ('h3')
-h3MainEl.textContent= '';
-
-let spanPriceEl = document.createElement('span')
-spanPriceEl.className = 'product-price'
-
-let pEl = document.createElement('p')
-pEl.textContent= '';
+   let imgEl = document.createElement('img')
+   imgEl.className = 'product-image'
+   imgEl.src= product.image
+   imgEl.alt= product.name
 
 
+   let productDetailsSpan = document.createElement('span')
+   productDetailsSpan.className = 'text'
 
-divEl.append(divProductContainer)
-divProductContainer.append(imgEl, spanMainEl,pEl)
-spanMainEl.append(h3MainEl,spanPriceEl)
+   let productNameEl = document.createElement('h3')
+   productNameEl.textContent= product.name
+
+   let productPriceEl = document.createElement('span')
+   productPriceEl.className = 'product-price'
+   productPriceEl.textContent = `£${product.price}`
+
+   
+
+  let productDescriptionEl = document.createElement('p')
+  productDescriptionEl.className = 'product-description'
+  productDescriptionEl.textContent= product.description
+
+  productDetailsSpan.append(productNameEl, productPriceEl, productDescriptionEl )
+
+  productWrapper.append(imgEl, productDetailsSpan)
+  divEl.append(productWrapper)
+  productList.append(productWrapper)
+
+}
+
+
+function renderProductList(mainEl:HTMLElement) {
+  const productList = document.createElement('ul')
+  productList.className = "product-list"
+
+  for (const product of getItemsToDisplay()){
+    renderMenuProducts(product, productList)
+  }
+
+  mainEl.append(productList)
+  
+
+}
+
+
+function renderMain () {
+  let mainEl = document.createElement('main')
+     if(mainEl=== null) return
+
+    renderProductList(mainEl)
+  
+  document.body.append(mainEl)
 
 }
 
@@ -109,10 +192,16 @@ function render() {
   document.body.innerHTML = ''
 
    renderHeader()
-   renderMenuProducts()
+   renderMain()
 
 }
 
 render()
+
+
+getMenuProducts() .then(function(menu){
+  state.menu = menu 
+  render()
+})
 
 
