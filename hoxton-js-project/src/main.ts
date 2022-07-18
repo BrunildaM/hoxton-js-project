@@ -23,6 +23,11 @@ let state: State = {
 
 }
 
+
+function getMenuProducts() {
+  return fetch ('http://localhost:3005/menu') .then (resp => resp.json())
+ }
+
 function renderHeader() {
 
   let headerEl = document.createElement("header");
