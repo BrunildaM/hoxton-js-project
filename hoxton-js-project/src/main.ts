@@ -1,12 +1,30 @@
 import "./style.css";
 
-// let state = {
-//   menu: [],
-//   typeFilters:['All', 'Breafast', 'Lunch', 'Dinner', 'Shakes']
 
-// }
+type Product ={
+  id: number,
+  type: string,
+  name: string,
+  image: string,
+  price: number,
+  description: string
+}
+
+type State = {
+  product: Product[],
+  typeFilters: string[]
+}
+
+
+
+let state: State = {
+  product: [],
+  typeFilters: ['All', 'Breafast', 'Lunch', 'Dinner', 'Shakes']
+
+}
 
 function renderHeader() {
+
   let headerEl = document.createElement("header");
   let h1HeaderEl = document.createElement("h1");
   h1HeaderEl.className = "header-title";
@@ -25,15 +43,15 @@ function renderHeader() {
 
   const aHeaderEl = document.createElement("a");
   aHeaderEl.className = "header-links";
+  aHeaderEl.setAttribute('src', '#')
 
-  navheaderEl.append(ulEl);
-  ulEl.append(liEl,);
   liEl.append(aHeaderEl)
-  headerEl.append(navheaderEl, ulEl,liEl)
-  document.body.append(headerEl)
+  ulEl.append(liEl,)
+  navheaderEl.append(ulEl);
   
-
-  render();
+  
+  headerEl.append(h1HeaderEl, navheaderEl)
+  document.body.append(headerEl)
 }
 
 
@@ -56,7 +74,7 @@ let divProductContainer = document.createElement('div')
 divProductContainer.className = 'product-container'
 
 let imgEl = document.createElement('img')
-imgEl.src= ''
+imgEl.src= 'https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage108081050-50-TN-American-Style-Dirty-Burger.jpg'
 imgEl.alt= ''
 
 
@@ -83,8 +101,13 @@ spanMainEl.append(h3MainEl,spanPriceEl)
 
 function render() {
 
+  document.body.innerHTML = ''
+
+   renderHeader()
+   renderMenuProducts()
 
 }
 
-renderHeader()
-renderMenuProducts()
+render()
+
+
