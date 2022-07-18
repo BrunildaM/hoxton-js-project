@@ -1,0 +1,100 @@
+{
+    "menu": [
+        {
+            "id": 1,
+            "type": "Lunch",
+            "name": "American style dirty burger",
+            "image": "https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage108081050-50-TN-American-Style-Dirty-Burger.jpg",
+            "price": 8.90
+        },
+        {
+            "id": 2,
+            "type": "Dinner",
+            "name": "Beef steak",
+            "image": "https://images.pexels.com/photos/3535383/pexels-photo-3535383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "price": 15.50,
+            "discountedPrice": 12.90
+        },
+        {
+            "id": 3,
+            "type": "Breakfast",
+            "name": "English breakfast",
+            "image": "https://iamafoodblog.b-cdn.net/wp-content/uploads/2019/02/full-english-7355w-2.jpg",
+            "price": 9.50,
+            "discountedPrice": 7.90
+        },
+        {
+            "id": 4,
+            "type": "Breakfast",
+            "name": "Fruits mix",
+            "image": "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "price": 5.90
+        },
+        {
+            "id": 5,
+            "type": "Shakes",
+            "name": "Godzilla milkshake",
+            "image": "https://www.menu.anneson.com/images/item-3.jpeg",
+            "price": 3.50
+        },
+        {
+            "id": 6,
+            "type": "Breakfast",
+            "name": "Healthy vegan breakfast",
+            "image": "https://cdn.loveandlemons.com/wp-content/uploads/2021/01/healthy-vegan-breakfast.jpg",
+            "price": 8.50,
+            "discountedPrice": 7.50
+        },
+        {
+            "id": 7,
+            "type": "Lunch",
+            "name": "Integral Burger",
+            "image": "https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-05-07-at-20.15.55.png",
+            "price": 6.49
+        },
+        {
+            "id": 8,
+            "type": "Breakfast",
+            "name": "Buttermilk pancakes",
+            "image": "https://www.justataste.com/wp-content/uploads/2015/07/light-and-fluffy-buttermilk-pancakes.jpg",
+            "price": 2.50
+        },
+        {
+            "id": 9,
+            "type": "Lunch",
+            "name": "Pizza",
+            "image": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "price": 6.90,
+            "discountedPrice": 5.90
+        },
+        {
+            "id": 10,
+            "type": "Dinner",
+            "name": "Smoked Salmon",
+            "image": "https://images.pexels.com/photos/262959/pexels-photo-262959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "price": 16.90
+        },
+        {
+            "id": 11,
+            "type": "Dinner",
+            "name": "Spaghetti",
+            "image": "https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "price": 5.90,
+            "discountedPrice": 4.90
+        },
+        {
+            "id": 12,
+            "type": "Dinner",
+            "name": "Sushi",
+            "image": "https://images.pexels.com/photos/670705/pexels-photo-670705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "price": 14.90
+        },
+        {
+            "id": 13,
+            "type": "Lunch",
+            "name": "Vegetables salad",
+            "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "price": 4.50
+        }
+    ]
+}
