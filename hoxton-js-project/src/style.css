@@ -27,8 +27,8 @@ header {
   grid-auto-flow: column;
   gap: 2rem;
   list-style: none;
-  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
- padding: 1rem; */
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));/
+  /* padding: 1rem; */
 }
 
 .header-list-elements {
