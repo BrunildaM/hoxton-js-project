@@ -147,13 +147,15 @@ function renderMenuProducts(product: Product, productList:any) {
    productPriceEl.className = 'product-price'
    productPriceEl.textContent = `£${product.price}`
 
+   productNameEl.append(productPriceEl)
+
    
 
   let productDescriptionEl = document.createElement('p')
   productDescriptionEl.className = 'product-description'
   productDescriptionEl.textContent= product.description
 
-  productDetailsSpan.append(productNameEl, productPriceEl, productDescriptionEl )
+  productDetailsSpan.append(productNameEl, productDescriptionEl )
 
   productWrapper.append(imgEl, productDetailsSpan)
   divEl.append(productWrapper)

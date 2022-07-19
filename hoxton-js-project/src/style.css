@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body {
@@ -69,7 +70,16 @@ header {
 }
 
 .product-image {
-  width: 500px;
+  width: 250px;
+  height: 150px;
   padding: 0.5rem;
+  object-fit: cover;
 }
 
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 700px);
+  justify-content: center;
+  gap: 1rem;
+
+}
