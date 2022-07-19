@@ -13,7 +13,8 @@ type Product ={
 type State = {
   menu: Product[],
   typeFilters: string[],
-  selectedFilter: string
+  selectedFilter: string,
+  selectedProduct: Product | null
 }
 
 
@@ -22,6 +23,7 @@ let state: State = {
   menu: [],
   typeFilters: ['All', 'Breafast', 'Lunch', 'Dinner', 'Shakes'],
   selectedFilter: 'All', 
+  selectedProduct: null
 
 }
 
@@ -30,6 +32,13 @@ function getMenuProducts() {
   return fetch ('http://localhost:3005/menu') .then (resp => resp.json())
  }
 
+
+
+//  function getFilterTypes() {
+//   return ['All', ...new Set(state.menu.map(item => item.type))]
+// }
+
+// getFilterTypes()
 
  function getItemsToDisplay() {
 
@@ -57,8 +66,6 @@ function getMenuProducts() {
 
 
 
-
-
 function renderHeader() {
 
   let headerEl = document.createElement("header");
@@ -66,53 +73,41 @@ function renderHeader() {
   h1HeaderEl.className = "header-title";
   h1HeaderEl.textContent = "Our Menu";
 
+  headerEl.addEventListener('click', function () {
+    state.selectedFilter = 'All'
+    state.selectedProduct = null
+    render ()
+  })
+
+
   let navheaderEl = document.createElement("nav");
   navheaderEl.className = 'header-nav"';
 
   let ulEl = document.createElement("ul");
   ulEl.className = "header-list";
 
-  ////// we can use filter here
+
+for (const filter of state.typeFilters) {
 
   let liEl = document.createElement("li");
   liEl.className = "header-list-elements";
 
   const aHeaderEl = document.createElement("a");
   aHeaderEl.className = "header-links";
-  aHeaderEl.setAttribute('src', '#')
-  aHeaderEl.textContent = 'All'
+  aHeaderEl.href= filter
+  aHeaderEl.textContent = filter
+
+  aHeaderEl.addEventListener('click', function () {
+    state.selectedFilter = filter
+    state.selectedProduct = null
+    render ()
+  })
 
   liEl.append(aHeaderEl)
   ulEl.append(liEl,)
+}
   navheaderEl.append(ulEl);
 
-
-
-  let li2El = document.createElement("li");
-  li2El.className = "header-list-elements";
-
-  const a2HeaderEl = document.createElement("a");
-  a2HeaderEl.className = "header-links";
-  a2HeaderEl.setAttribute('src', '#')
-  a2HeaderEl.textContent = 'Breakfast'
-
-  li2El.append(a2HeaderEl)
-  ulEl.append(li2El,)
-  navheaderEl.append(ulEl);
-  
-
-  let li3El = document.createElement("li");
-  li3El.className = "header-list-elements";
-
-  const a3HeaderEl = document.createElement("a");
-  a3HeaderEl.className = "header-links";
-  a3HeaderEl.setAttribute('src', '#')
-  a3HeaderEl.textContent = 'Lunch'
-
-  li3El.append(a3HeaderEl)
-  ulEl.append(li3El,)
-  navheaderEl.append(ulEl);
-  
   headerEl.append(h1HeaderEl, navheaderEl)
   document.body.append(headerEl)
 }
@@ -173,8 +168,6 @@ function renderProductList(mainEl:HTMLElement) {
   }
 
   mainEl.append(productList)
-  
-
 }
 
 
