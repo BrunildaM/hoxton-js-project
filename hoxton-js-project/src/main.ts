@@ -24,18 +24,9 @@ let state: State = {
   typeFilters: ['All', 'Breakfast', 'Lunch', 'Dinner', 'Shakes'],
   selectedFilter: '', 
   selectedProduct: null
-
 }
 
 
-
-function selectProduct (Products:Product){
-  state.selectedProduct = Products
-}
-
-function deselectProduct (Products:Product){
-  state.selectedProduct = null
-}
 
 function getMenuProducts() {
   return fetch ('http://localhost:3005/menu') .then (resp => resp.json())
@@ -122,59 +113,55 @@ for (const filter of state.typeFilters) {
 }
 
 
-function renderSingleProduct(product:Product){
+function renderSingleProduct(mainEl:HTMLElement){
 
-let mainEl = document.querySelector('main')
-
-if (mainEl === null ) return
-mainEl.textContent = ''
-console.log(mainEl)
-
-   let sectionSingleProduct = document.createElement("section");
-  sectionSingleProduct.className = "single-movie-section";
+  let sectionSingleProduct = document.createElement("section");
+  sectionSingleProduct.className = "single-product-section";
 
   let buttonBack = document.createElement("button");
   buttonBack.className = "back-button";
   buttonBack.textContent= '⬅Back'
-  buttonBack.addEventListener ('mouseenter', function (){
+  buttonBack.addEventListener ('click', function (){
 
-    deselectProduct(product)
+    state.selectedProduct = null
 
     render()
 
   })  
 
 
-let singleElWrapper = document.createElement('div')
-singleElWrapper.setAttribute("class", "single-product-div")
+  let singleElWrapper = document.createElement('div')
+  singleElWrapper.setAttribute("class", "single-product-div")
 
-let singleImageProduct = document.createElement('img')
-singleImageProduct.setAttribute("class", "single-image-product")
-singleImageProduct.src= state.selectedProduct.image
-singleImageProduct.addEventListener('click', function(){
-  selectProduct(product)
-  render()
-  })
+  let singleImageProduct = document.createElement('img')
+  singleImageProduct.setAttribute("class", "single-image-product")
+  //@ts-ignore
+  singleImageProduct.src= state.selectedProduct.image
 
-let h3El = document.createElement('h3')
-h3El.setAttribute ("class", "h3-title")
-
-h3El.textContent= state.selectedProduct.name
+  let h3El = document.createElement('h3')
+  h3El.setAttribute ("class", "product-header-name")
+  //@ts-ignore
+  h3El.textContent= state.selectedProduct.name
 
 
+  let singleProductPrice = document.createElement('span')
+  singleProductPrice.setAttribute("class", "product-price")
+  //@ts-ignore
+  singleProductPrice.textContent= `£${state.selectedProduct.price}`
 
-let singleProductPrice = document.createElement('span')
-singleProductPrice.setAttribute("class", "single-product-price")
-singleProductPrice.textContent= state.selectedProduct.price
+  h3El.append(singleProductPrice)
 
-let singleParagraphEl = document.createElement('p')
-singleParagraphEl.setAttribute("class","single-paragraph")
-singleParagraphEl.textContent= state.selectedProduct?.description
+  let singleParagraphEl = document.createElement('p')
+  singleParagraphEl.setAttribute("class","single-paragraph")
+  //@ts-ignore
+  singleParagraphEl.textContent= state.selectedProduct.description
+
+  singleElWrapper.append(singleImageProduct, h3El, singleParagraphEl)
 
 
-mainEl.append(sectionSingleProduct)
-sectionSingleProduct.append(singleElWrapper, singleImageProduct,h3El, singleProductPrice, singleParagraphEl)
-
+  
+  sectionSingleProduct.append(buttonBack, singleElWrapper)
+  mainEl.append(sectionSingleProduct)
 }
 
 
@@ -187,6 +174,11 @@ function renderMenuProducts(product: Product, productList:any) {
 
    let productWrapper = document.createElement('div')
    productWrapper.className = 'product-container'
+
+   productWrapper.addEventListener('click', function() {
+    state.selectedProduct = product
+    render()
+  })
 
 
    let imgEl = document.createElement('img')
@@ -235,13 +227,19 @@ function renderProductList(mainEl:HTMLElement) {
 }
 
 function renderMain () {
-  let mainEl = document.createElement('main')
-     if(mainEl=== null) return
+  const mainEl = document.createElement('main')
 
+  if (state.selectedProduct !== null){
+
+    renderSingleProduct(mainEl)
+
+  } else {
+  
     renderProductList(mainEl)
+  }
+
   
   document.body.append(mainEl)
-
 }
 
 
@@ -251,7 +249,6 @@ function render() {
 
    renderHeader()
    renderMain()
-  //  renderSingleProduct()
 
 }
 
