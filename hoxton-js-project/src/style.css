@@ -81,5 +81,11 @@ header {
   grid-template-columns: repeat(auto-fit, 700px);
   justify-content: center;
   gap: 1rem;
+}
+
+.product-header-name {
+  text-decoration: wavy;
+  padding-bottom: 1rem;
+ 
 
 }

@@ -136,6 +136,7 @@ function renderMenuProducts(product: Product, productList:any) {
    productDetailsSpan.className = 'text'
 
    let productNameEl = document.createElement('h3')
+   productNameEl.className = 'product-header-name'
    productNameEl.textContent= product.name
 
    let productPriceEl = document.createElement('span')
