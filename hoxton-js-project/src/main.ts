@@ -21,8 +21,8 @@ type State = {
 
 let state: State = {
   menu: [],
-  typeFilters: ['All', 'Breafast', 'Lunch', 'Dinner', 'Shakes'],
-  selectedFilter: 'All', 
+  typeFilters: ['All', 'Breakfast', 'Lunch', 'Dinner', 'Shakes'],
+  selectedFilter: '', 
   selectedProduct: null
 
 }
@@ -74,7 +74,7 @@ function renderHeader() {
   h1HeaderEl.textContent = "Our Menu";
 
   headerEl.addEventListener('click', function () {
-    state.selectedFilter = 'All'
+    state.selectedFilter = ''
     state.selectedProduct = null
     render ()
   })
