@@ -251,7 +251,7 @@ function render() {
 
    renderHeader()
    renderMain()
-   renderSingleProduct()
+  //  renderSingleProduct()
 
 }
 
