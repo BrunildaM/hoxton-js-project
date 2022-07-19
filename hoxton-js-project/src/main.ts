@@ -21,7 +21,7 @@ type State = {
 
 let state: State = {
   menu: [],
-  typeFilters: ['All', 'Breafast', 'Lunch', 'Dinner', 'Shakes'],
+  typeFilters: ['All', 'Breakfast', 'Lunch', 'Dinner', 'Shakes'],
   selectedFilter: 'All', 
   selectedProduct: null
 
@@ -126,6 +126,7 @@ function renderMenuProducts(product: Product, productList:any) {
    let productWrapper = document.createElement('div')
    productWrapper.className = 'product-container'
 
+
    let imgEl = document.createElement('img')
    imgEl.className = 'product-image'
    imgEl.src= product.image
@@ -170,7 +171,6 @@ function renderProductList(mainEl:HTMLElement) {
 
   mainEl.append(productList)
 }
-
 
 function renderMain () {
   let mainEl = document.createElement('main')
