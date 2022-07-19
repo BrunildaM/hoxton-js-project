@@ -28,6 +28,15 @@ let state: State = {
 }
 
 
+
+function selectProduct (Products:Product){
+  state.selectedProduct = Products
+}
+
+function deselectProduct (Products:Product){
+  state.selectedProduct = null
+}
+
 function getMenuProducts() {
   return fetch ('http://localhost:3005/menu') .then (resp => resp.json())
  }
@@ -113,7 +122,60 @@ for (const filter of state.typeFilters) {
 }
 
 
+function renderSingleProduct(product:Product){
 
+let mainEl = document.querySelector('main')
+
+if (mainEl === null ) return
+mainEl.textContent = ''
+console.log(mainEl)
+
+   let sectionSingleProduct = document.createElement("section");
+  sectionSingleProduct.className = "single-movie-section";
+
+  let buttonBack = document.createElement("button");
+  buttonBack.className = "back-button";
+  buttonBack.textContent= '⬅Back'
+  buttonBack.addEventListener ('mouseenter', function (){
+
+    deselectProduct(product)
+
+    render()
+
+  })  
+
+
+let singleElWrapper = document.createElement('div')
+singleElWrapper.setAttribute("class", "single-product-div")
+
+let singleImageProduct = document.createElement('img')
+singleImageProduct.setAttribute("class", "single-image-product")
+singleImageProduct.src= state.selectedProduct.image
+singleImageProduct.addEventListener('click', function(){
+  selectProduct(product)
+  render()
+  })
+
+let h3El = document.createElement('h3')
+h3El.setAttribute ("class", "h3-title")
+
+h3El.textContent= state.selectedProduct.name
+
+
+
+let singleProductPrice = document.createElement('span')
+singleProductPrice.setAttribute("class", "single-product-price")
+singleProductPrice.textContent= state.selectedProduct.price
+
+let singleParagraphEl = document.createElement('p')
+singleParagraphEl.setAttribute("class","single-paragraph")
+singleParagraphEl.textContent= state.selectedProduct?.description
+
+
+mainEl.append(sectionSingleProduct)
+sectionSingleProduct.append(singleElWrapper, singleImageProduct,h3El, singleProductPrice, singleParagraphEl)
+
+}
 
 
 function renderMenuProducts(product: Product, productList:any) {
@@ -184,16 +246,18 @@ function renderMain () {
 
 
 function render() {
-
+  
   document.body.innerHTML = ''
 
    renderHeader()
    renderMain()
+   renderSingleProduct()
 
 }
 
 render()
 
+ 
 
 getMenuProducts() .then(function(menu){
   state.menu = menu 
@@ -201,3 +265,9 @@ getMenuProducts() .then(function(menu){
 })
 
 
+// KJO DUHET PO SDI KU TA FUS KETU *8**8****
+// function render(){
+// if(state.selectedProduct) renderSingleProduct()
+//   else renderMenuProducts()
+
+// }
