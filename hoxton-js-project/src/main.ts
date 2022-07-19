@@ -226,6 +226,8 @@ function renderProductList(mainEl:HTMLElement) {
   mainEl.append(productList)
 }
 
+
+
 function renderMain () {
   const mainEl = document.createElement('main')
 
