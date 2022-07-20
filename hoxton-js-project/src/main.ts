@@ -201,7 +201,16 @@ function renderMenuProducts(product: Product, productList:any) {
    productPriceEl.className = 'product-price'
    productPriceEl.textContent = `£${product.price}`
 
-   productNameEl.append(productPriceEl)
+   let orderButton = document.createElement('button')
+   orderButton.className = 'order-button'
+   orderButton.textContent = 'ORDER'
+
+   orderButton.addEventListener('click', function () {
+    console.log('order done')
+
+   })
+
+   productNameEl.append(productPriceEl, orderButton)
 
    
 
