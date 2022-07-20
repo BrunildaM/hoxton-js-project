@@ -344,6 +344,50 @@ function renderMain () {
 // }
 
 
+function changeMode() {
+      
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
+
+
+
+function renderFooter () {
+
+  let footerEl = document.createElement('footer')
+
+  let darkModeDiv = document.createElement('div')
+  darkModeDiv.id = 'container'
+
+  let titleEl = document.createElement('h2')
+  titleEl.textContent = 'Change Light / Dark mode'
+
+  let labelEl = document.createElement('label')
+  labelEl.className = "switch"
+
+  let inputEl = document.createElement('input')
+  inputEl.type = 'checkbox'
+
+  inputEl.addEventListener('click', function() {
+    changeMode()
+  }) 
+
+  let spanEl = document.createElement('span')
+  spanEl.className = 'slider'
+
+  labelEl.append(inputEl, spanEl)
+
+  darkModeDiv.append(titleEl,labelEl)
+
+  footerEl.append(darkModeDiv)
+
+  document.body.append(footerEl)
+
+
+}
+
+
+
 
 function render() {
   
@@ -351,7 +395,7 @@ function render() {
 
    renderHeader()
    renderMain()
-  //  renderFooter()
+   renderFooter()
    
 
 }
