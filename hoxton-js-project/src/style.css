@@ -58,8 +58,7 @@ header {
 
 .main {
   display: grid;
-  align-items: center;
- 
+  align-items: center; 
 }
 
 .main-product-container {
@@ -72,8 +71,9 @@ header {
 .product-image {
   width: 250px;
   height: 150px;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   object-fit: cover;
+  border: 5px solid rgba(95, 33, 33, 0.627);
 }
 
 .product-list {
@@ -81,6 +81,7 @@ header {
   grid-template-columns: repeat(auto-fit, 700px);
   justify-content: center;
   gap: 1rem;
+  margin-top: 5rem;
 }
 
 .product-header-name {

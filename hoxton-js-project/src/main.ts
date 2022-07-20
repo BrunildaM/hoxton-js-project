@@ -74,7 +74,7 @@ function renderHeader() {
   h1HeaderEl.textContent = "Our Menu";
 
   headerEl.addEventListener('click', function () {
-    state.selectedFilter = ''
+      getItemsToDisplay()
     state.selectedProduct = null
     render ()
   })
@@ -94,7 +94,7 @@ for (const filter of state.typeFilters) {
 
   const aHeaderEl = document.createElement("a");
   aHeaderEl.className = "header-links";
-  aHeaderEl.href= filter
+  aHeaderEl.href= '#'
   aHeaderEl.textContent = filter
 
   aHeaderEl.addEventListener('click', function () {
@@ -111,6 +111,9 @@ for (const filter of state.typeFilters) {
   headerEl.append(h1HeaderEl, navheaderEl)
   document.body.append(headerEl)
 }
+
+
+
 
 
 function renderSingleProduct(mainEl:HTMLElement){
@@ -235,9 +238,10 @@ function renderMain () {
 
     renderSingleProduct(mainEl)
 
-  } else {
-  
+  }else  {
+
     renderProductList(mainEl)
+
   }
 
   
