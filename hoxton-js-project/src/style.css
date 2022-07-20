@@ -16,11 +16,13 @@ header {
   place-items: center;
   padding: 1rem;
   /* background-color: rgb(255, 228, 196); */
+  
 }
 
 .header-title {
   font-size: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid #c59d5f;
 }
 
 .header-list {
@@ -28,8 +30,9 @@ header {
   grid-auto-flow: column;
   gap: 2rem;
   list-style: none;
+  padding: 1rem;
   /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));/
-  /* padding: 1rem; */
+   /* padding: 1rem;  */
 }
 
 .header-list-elements {
