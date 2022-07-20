@@ -36,7 +36,7 @@ header {
 }
 
 .header-list-elements {
-  border: 2px solid rgba(165, 42, 42, 0.329);
+  border: 2px solid #c59d5f;
   border-radius: 5px;
   padding: 0.30rem;
 }
@@ -76,7 +76,8 @@ header {
   height: 150px;
   /* padding: 0.5rem; */
   object-fit: cover;
-  border: 5px solid rgba(95, 33, 33, 0.627);
+  border: 5px solid #c59d5f;
+  
 }
 
 .product-list {
@@ -85,18 +86,20 @@ header {
   justify-content: center;
   gap: 1rem;
   margin-top: 5rem;
+ /* padding: 1rem ; */
 }
 
 .product-header-name {
   text-decoration: wavy;
   padding-bottom: 1rem;
+  border-bottom: 2px solid #c59d5f;
 }
 
 .single-image-product {
   width: 700px;
   height: 400px;
   object-fit: cover;
-  border: 5px solid rgba(95, 33, 33, 0.627);
+  border: 5px solid #c59d5f;
 }
 
 .single-product-div {
