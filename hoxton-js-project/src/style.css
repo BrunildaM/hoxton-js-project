@@ -128,3 +128,11 @@ header {
   background-color: rgba(226, 214, 43, 0.344)
   
 }
+
+
+.order-button {
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 2rem;
+  background-color: rgba(226, 214, 43, 0.344)
+}

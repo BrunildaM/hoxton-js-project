@@ -34,6 +34,15 @@ function getMenuProducts() {
 
 
 
+  // const addItems = document.querySelector('.add-items');
+  // const itemsList = document.querySelector('.plates');
+  // const checkBtn = document.querySelector('.check-btn');
+  // const deleteAllBtn = document.querySelector('.delete-all-btn');
+  // const orderBtn = document.querySelector('.order-btn');
+  
+  
+
+
 //  function getFilterTypes() {
 //   return ['All', ...new Set(state.menu.map(item => item.type))]
 // }
@@ -201,16 +210,9 @@ function renderMenuProducts(product: Product, productList:any) {
    productPriceEl.className = 'product-price'
    productPriceEl.textContent = `£${product.price}`
 
-   let orderButton = document.createElement('button')
-   orderButton.className = 'order-button'
-   orderButton.textContent = 'ORDER'
+   
 
-   orderButton.addEventListener('click', function () {
-    console.log('order done')
-
-   })
-
-   productNameEl.append(productPriceEl, orderButton)
+   productNameEl.append(productPriceEl)
 
    
 
@@ -258,12 +260,99 @@ function renderMain () {
 }
 
 
+
+
+// function renderOrderForm () {
+
+//   let backgroundImg = document.createElement('img')
+//   backgroundImg.src = 'https://www.vectorstock.com/royalty-free-vector/restaurant-background-vector-400201'
+//   backgroundImg.className = 'background-image'
+
+//   let orderWrapper = document.createElement('div')
+//   orderWrapper.className = 'wrapper'
+
+//   let titleEl = document.createElement('h2')
+//   titleEl.textContent = 'Hox-Restro'
+//   titleEl.className = 'name'
+
+//   let dishesList = document.createElement('ul')
+//   dishesList.className = 'plates'
+
+//   let dishesListItems = document.createElement('li')
+//   dishesListItems.textContent = 'Loading Dishes...'
+
+//   dishesList.append(dishesListItems)
+
+//   let formEl = document.createElement('form')
+//   formEl.className = 'add-items'
+
+//   let addItemInput = document.createElement('input')
+//   addItemInput.placeholder = 'Item Name'
+//   addItemInput.type = 'text'
+//   addItemInput.required = true
+
+//   let submitInput = document.createElement('input')
+//   submitInput.type = 'submit'
+//   submitInput.value = '+ Add Item'
+
+//   formEl.append(addItemInput, submitInput)
+
+//   let checkBttn = document.createElement('button')
+//   checkBttn.className = 'check-btn'
+//   checkBttn.textContent = 'Check'
+
+//   let deleteBttn = document.createElement('button')
+//   deleteBttn.className = 'delete-all-btn'
+//   deleteBttn.textContent = 'Delete All'
+
+//   let orderNowDiv = document.createElement('div')
+
+//   let OrderNowBttn = document.createElement('button')
+//   OrderNowBttn.className = 'order-btn'
+//   OrderNowBttn.textContent = 'Order Now'
+
+//   orderNowDiv.append(OrderNowBttn)
+
+//   orderWrapper.append(titleEl, dishesList, formEl, checkBttn, deleteBttn, orderNowDiv)
+
+//   document.body.append(orderWrapper)
+
+// }
+
+
+
+// function renderFooter () {
+
+//   let footerEl = document.createElement('footer')
+//   footerEl.className = 'footer'
+
+//   let orderButton = document.createElement('button')
+//    orderButton.className = 'order-button'
+//    orderButton.textContent = 'ORDER'
+
+//    orderButton.addEventListener('click', function (event) {
+//     event.preventDefault(); 
+
+//       renderOrderForm ()
+
+//    })
+
+//    footerEl.append(orderButton)
+
+//    document.body.append(footerEl)
+
+// }
+
+
+
 function render() {
   
   document.body.innerHTML = ''
 
    renderHeader()
    renderMain()
+  //  renderFooter()
+   
 
 }
 
