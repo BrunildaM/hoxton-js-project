@@ -209,3 +209,41 @@ input:checked + .slider:before {
   color: #f7f0e9;
 }
 
+
+.cart-content {
+  position: fixed;
+  bottom: 20px;
+  right: 5%;
+  transition: transform .2s;
+}
+
+/* .cart__body {
+  display: grid;
+  grid-auto-flow: column;
+} */
+
+
+
+.product-list {
+  list-style: none;
+}
+
+
+.carticon-image {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 5%;
+  transition: transform .2s;
+}
+
+
+.product-cart-image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+
+
