@@ -8,6 +8,7 @@ type Product = {
   image: string,
   price: number,
   description: string
+  amountInCart: number
 }
 
 type State = {
@@ -35,6 +36,40 @@ let state: State = {
 function getMenuProducts() {
   return fetch('http://localhost:3005/menu').then(resp => resp.json())
 }
+
+function getInCart(){
+
+  return state.menu.filter(product => product.amountInCart > 0)
+}
+
+function getTotalPrice(){
+
+  let total = 0
+  for (const product of getInCart()){
+    total += product.amountInCart * product.price
+    
+    
+  }
+
+  return total
+
+  
+}
+
+function addProductToCart(product:Product){
+
+product.amountInCart++
+
+}
+
+function removeProductFromCart(product:Product){
+
+  if (product.amountInCart > 0)
+  product.amountInCart--
+
+
+}
+
 
 
 
@@ -149,9 +184,12 @@ function renderSingleProduct(mainEl: HTMLElement) {
   orderButtonEl.className = "order-button-El";
   orderButtonEl.textContent = 'ORDER'
   orderButtonEl.addEventListener('click', function () {
+
+
     //@ts-ignore
 
     state.cart.push(state.selectedProduct)
+    // getInCart()
 
     render()
 
@@ -353,6 +391,8 @@ function renderCart(mainEl: HTMLElement) {
       let cartPrice = document.createElement('h2')
       cartPrice.className = 'cart__total-price'
       cartPrice.textContent = `Total Price £0`
+
+      
 
       let cartButton = document.createElement('button')
       cartButton.className = 'close-button'
