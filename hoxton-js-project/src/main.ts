@@ -382,7 +382,7 @@ function addToCart () {
   let cartLayoutDiv = document.createElement('div')
   cartLayoutDiv.className = 'cd-cart__layout'
 
-  let cartHeader = document.createElement('head')
+  let cartHeader = document.createElement('div')
   cartHeader.className = 'cd-cart__header'
 
   let cartTitle = document.createElement('h2')
@@ -410,24 +410,67 @@ function addToCart () {
 
   let bodyList = document.createElement('ul')
 
+
+  let bodyListItem = document.createElement('li')
+  bodyListItem.className = 'cd-cart__product'
+
+
+  let cartImageDiv = document.createElement('div')
+  cartImageDiv.className = 'cd-cart__image'
+
+  let imageLink = document.createElement('a')
+  imageLink.textContent= '#0'
+
+  let productImageCart = document.createElement('img')
+  productImageCart.src = ''
+  productImageCart.alt = ''
+
+  imageLink.append(productImageCart)
+  cartImageDiv.append(imageLink)
+
+
+
+
+  let cartDetailsDiv = document.createElement('div')
+  cartDetailsDiv.className = 'cd-cart__details'
+
+  let productNameCart = document.createElement('h3')
+  productNameCart.className = 'truncate'
+
+  let productLinkCart = document.createElement('a')
+  productLinkCart.href = '#0'
+  productLinkCart.textContent = 'Product Name'
+
+  let productPriceSpan = document.createElement('span')
+  productPriceSpan.className = 'cd-cart__price'
+  productPriceSpan.textContent = '$25.99'
+
+  productNameCart.append(productLinkCart)
+
+  let deleteProductDiv = document.createElement('div')
+  deleteProductDiv.className= 'cd-cart__actions'
+
+  let deleteProductLink = document.createElement('a')
+  deleteProductLink.href = '#0'
+  deleteProductLink.className = 'cd-cart__delete-item'
+  deleteProductLink.textContent = 'Delete'
+
+  let productQuantity = document.createElement('div')
+  productQuantity.className = 'cd-cart__quantity'
+
+  let labelQuantity = document.createElement('label')
+  labelQuantity.className = 'cd-product-productId'
+  labelQuantity.textContent = 'Qty'
+
+  let selectProduct = document.createElement('span')
+  selectProduct.className = 'cd-cart__select'
+  
+  
+
   /*
    <ul>
     <li class="cd-cart__product">
-      <div class="cd-cart__image">
-        <a href="#0">
-          <img src="assets/img/product-preview.png" alt="placeholder">
-        </a>
-      </div>
-
-      <div class="cd-cart__details">
-        <h3 class="truncate"><a href="#0">Product Name</a></h3>
-
-        <span class="cd-cart__price">$25.99</span>
-
-        <div class="cd-cart__actions">
-          <a href="#0" class="cd-cart__delete-item">Delete</a>
-
-          <div class="cd-cart__quantity">
+    
             <label for="cd-product-productId">Qty</label>
 
             <span class="cd-cart__select">
@@ -466,6 +509,25 @@ function addToCart () {
 </div> <!-- cd-cart -->
 
 */
+
+let cartFotter = document.createElement('div')
+cartFotter.className= 'cd-cart__footer'
+
+
+let checkoutLink = document.createElement('a')
+checkoutLink.href = '#0'
+checkoutLink.className = 'cd-cart__checkout'
+checkoutLink.textContent = 'Checkout - £'
+
+
+let cartPrice = document.createElement('span')
+cartPrice.textContent = '0'
+
+let cartButton = document.createElement('button')
+cartButton.textContent = 'X'
+
+checkoutLink.append(cartPrice, cartButton)
+cartFotter.append(checkoutLink)
 
 
 
