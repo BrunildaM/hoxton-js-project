@@ -130,16 +130,7 @@ function renderSingleProduct(mainEl:HTMLElement){
   let sectionSingleProduct = document.createElement("section");
   sectionSingleProduct.className = "single-product-section";
 
-  let orderButtonEl = document.createElement("button");
-  orderButtonEl.className = "order-button-El";
-  orderButtonEl.textContent= 'ORDER'
-  orderButtonEl.addEventListener ('click', function (){
-
-    state.selectedProduct = null
-
-    render()
-
-  })  
+  
 
 
   let singleElWrapper = document.createElement('div')
@@ -161,7 +152,18 @@ function renderSingleProduct(mainEl:HTMLElement){
   //@ts-ignore
   singleProductPrice.textContent= `£${state.selectedProduct.price}`
 
-  h3El.append(singleProductPrice)
+  let orderButtonEl = document.createElement("button");
+  orderButtonEl.className = "order-button-El";
+  orderButtonEl.textContent= 'ORDER'
+  orderButtonEl.addEventListener ('click', function () {
+        // event.preventDefault(); 
+    
+        //   renderOrderForm ()
+    render()
+
+  })  
+
+  h3El.append(singleProductPrice, orderButtonEl)
 
   let singleParagraphEl = document.createElement('p')
   singleParagraphEl.setAttribute("class","single-paragraph")
@@ -172,7 +174,7 @@ function renderSingleProduct(mainEl:HTMLElement){
 
 
   
-  sectionSingleProduct.append(orderButtonEl, singleElWrapper)
+  sectionSingleProduct.append(singleElWrapper)
   mainEl.append(sectionSingleProduct)
 }
 
@@ -351,6 +353,128 @@ function changeMode() {
 }
 
 
+function addToCart () {
+
+  let cartDiv = document.createElement('div')
+  cartDiv.className = 'cd-cart.cd-cart--empty.js-cd-cart'
+
+  let cartLink = document.createElement('a')
+  cartLink.href = '#0'
+  cartLink.className = 'cd-cart__trigger.text-replace'
+  cartLink.textContent = 'Cart'
+
+  let cartList = document.createElement('ul')
+  cartList.className = 'cd-cart__count'
+
+  let cartListItem1 = document.createElement('li')
+  cartListItem1.value = 0
+
+  let cartListItem2 = document.createElement('li')
+  cartListItem2.value = 0
+
+  cartList.append(cartListItem1, cartListItem2)
+  cartLink.append(cartList)
+
+
+  let cartContentDiv = document.createElement('div')
+  cartContentDiv.className = 'cd-cart__content'
+
+  let cartLayoutDiv = document.createElement('div')
+  cartLayoutDiv.className = 'cd-cart__layout'
+
+  let cartHeader = document.createElement('head')
+  cartHeader.className = 'cd-cart__header'
+
+  let cartTitle = document.createElement('h2')
+  cartTitle.textContent = 'Cart'
+
+  let cartSpan = document.createElement('span')
+  cartSpan.className = 'cd-cart__undo'
+  cartSpan.textContent = 'Item removed.'
+
+  let undoLink = document.createElement('a')
+  undoLink.href = '#0'
+  undoLink.textContent = 'Undo'
+
+  cartSpan.append(undoLink)
+
+  cartHeader.append(cartTitle, cartSpan)
+
+
+  cartLayoutDiv.append(cartHeader)
+  cartContentDiv.append(cartLayoutDiv)
+  cartDiv.append(cartContentDiv)
+
+  let cartBodyDiv = document.createElement('div')
+  cartBodyDiv.className = 'cd-cart__body'
+
+  let bodyList = document.createElement('ul')
+
+  /*
+   <ul>
+    <li class="cd-cart__product">
+      <div class="cd-cart__image">
+        <a href="#0">
+          <img src="assets/img/product-preview.png" alt="placeholder">
+        </a>
+      </div>
+
+      <div class="cd-cart__details">
+        <h3 class="truncate"><a href="#0">Product Name</a></h3>
+
+        <span class="cd-cart__price">$25.99</span>
+
+        <div class="cd-cart__actions">
+          <a href="#0" class="cd-cart__delete-item">Delete</a>
+
+          <div class="cd-cart__quantity">
+            <label for="cd-product-productId">Qty</label>
+
+            <span class="cd-cart__select">
+              <select class="reset" id="cd-product-productId" name="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <!-- ... -->
+              </select>
+
+              <svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <!-- other products added to the cart -->
+  </ul>
+</div>
+
+  */
+
+  cartBodyDiv.append(bodyList)
+
+/*
+<footer class="cd-cart__footer">
+        <a href="#0" class="cd-cart__checkout">
+          <em>Checkout - $<span>0</span>
+            <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
+            </svg>
+          </em>
+        </a>
+      </footer>
+    </div>
+  </div> <!-- .cd-cart__content -->
+</div> <!-- cd-cart -->
+
+*/
+
+
+
+
+
+
+}
+
+
 
 function renderFooter () {
 
@@ -409,10 +533,3 @@ getMenuProducts() .then(function(menu){
   render()
 })
 
-
-// KJO DUHET PO SDI KU TA FUS KETU *8**8****
-// function render(){
-// if(state.selectedProduct) renderSingleProduct()
-//   else renderMenuProducts()
-
-// }

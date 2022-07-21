@@ -124,13 +124,11 @@ header {
 }
 
 .order-button-El{
-  display: grid;
   padding: 10px;
   border-radius: 5px;
-  margin-bottom: 2rem;
-  /* border-color: 1px solid #9f650d; */
+  margin-left: 2rem;
   background-color: rgba(226, 214, 43, 0.344);
-  /* justify-self: end; */
+  border: #9f650d;
   
 }
 
