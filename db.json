@@ -6,7 +6,8 @@
             "name": "American style dirty burger",
             "image": "https://www.gordonramsayrestaurants.com/assets/Uploads/_resampled/CroppedFocusedImage108081050-50-TN-American-Style-Dirty-Burger.jpg",
             "price": 8.90,
-            "description": "1 pound ground beef, 2 tablespoons finely chopped onion, 2 tablespoons chili sauce, 2 teaspoons Worcestershire sauce, 4 slices American cheese or cheddar cheese, halved diagonally. Optional: Lettuce leaves, sliced tomato, sliced onion, cooked bacon strips, ketchup and mustard."
+            "description": "1 pound ground beef, 2 tablespoons finely chopped onion, 2 tablespoons chili sauce, 2 teaspoons Worcestershire sauce, 4 slices American cheese or cheddar cheese, halved diagonally. Optional: Lettuce leaves, sliced tomato, sliced onion, cooked bacon strips, ketchup and mustard.",
+            "amountInCart": 0
         },
         {
             "id": 2,
@@ -14,7 +15,8 @@
             "name": "Beef steak",
             "image": "https://images.pexels.com/photos/3535383/pexels-photo-3535383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "price": 15.50,
-            "description": "A beefsteak, often called just steak, is a flat cut of beef with parallel faces, usually cut perpendicular to the muscle fibers.  Beef steaks are usually grilled, pan-fried, or broiled. The more tender cuts from the loin and rib are cooked quickly, using dry heat, and served whole. Less tender cuts from the chuck or round are cooked with moist heat or are mechanically tenderized"
+            "description": "A beefsteak, often called just steak, is a flat cut of beef with parallel faces, usually cut perpendicular to the muscle fibers.  Beef steaks are usually grilled, pan-fried, or broiled. The more tender cuts from the loin and rib are cooked quickly, using dry heat, and served whole. Less tender cuts from the chuck or round are cooked with moist heat or are mechanically tenderized",
+            "amountInCart": 0
         },
         {
             "id": 3,
@@ -22,7 +24,8 @@
             "name": "English breakfast",
             "image": "https://iamafoodblog.b-cdn.net/wp-content/uploads/2019/02/full-english-7355w-2.jpg",
             "price": 9.50,
-            "description": "The 'common' full English breakfast is a substantial meal consisting of back bacon, eggs, British sausage, baked beans, fried tomato, fried mushrooms, black pudding, fried and toasted bread."
+            "description": "The 'common' full English breakfast is a substantial meal consisting of back bacon, eggs, British sausage, baked beans, fried tomato, fried mushrooms, black pudding, fried and toasted bread.",
+            "amountInCart": 0
         },
         {
             "id": 4,
@@ -30,7 +33,8 @@
             "name": "Fruits mix",
             "image": "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "price": 5.90,
-            "description": "Mixed Fruits is exactly what it appears to be – a mix of assorted fruits! While a blend of sliced peaches, strawberries, pineapple, mangoes, dates, apricots and grapes is absolutely heavenly, you can opt for a different selection of fruits depending on the recipe requirement, individual taste and seasonal availability."
+            "description": "Mixed Fruits is exactly what it appears to be – a mix of assorted fruits! While a blend of sliced peaches, strawberries, pineapple, mangoes, dates, apricots and grapes is absolutely heavenly, you can opt for a different selection of fruits depending on the recipe requirement, individual taste and seasonal availability.",
+            "amountInCart": 0
         },
         {
             "id": 5,
@@ -38,7 +42,8 @@
             "name": "Godzilla milkshake",
             "image": "https://www.menu.anneson.com/images/item-3.jpeg",
             "price": 3.50,
-            "description": "Milo blended with banana & mint chocolate chip ice cream, drizzled with melted chocolate & topped with more ice cream & Milo"
+            "description": "Milo blended with banana & mint chocolate chip ice cream, drizzled with melted chocolate & topped with more ice cream & Milo",
+            "amountInCart": 0
         },
         {
             "id": 6,
@@ -47,7 +52,8 @@
             "image": "https://cdn.loveandlemons.com/wp-content/uploads/2021/01/healthy-vegan-breakfast.jpg",
             "price": 8.50,
             "discountedPrice": 7.50,
-            "description": "Toasted artisan bread, crushed avocado, whipped feta, red onion, arugula, baby tomatoes."
+            "description": "Toasted artisan bread, crushed avocado, whipped feta, red onion, arugula, baby tomatoes.",
+            "amountInCart": 0
         },
         {
             "id": 7,
@@ -55,7 +61,8 @@
             "name": "Integral Burger",
             "image": "https://bigseventravel.com/wp-content/uploads/2019/05/Screenshot-2019-05-07-at-20.15.55.png",
             "price": 6.49,
-            "description": "Tasty and fragrant hamburger meat in a healthy integral bread with the fresh tomatoes, onion and lettuce with the addition of fried chips."
+            "description": "Tasty and fragrant hamburger meat in a healthy integral bread with the fresh tomatoes, onion and lettuce with the addition of fried chips.",
+            "amountInCart": 0
         },
         {
             "id": 8,
@@ -63,7 +70,8 @@
             "name": "Buttermilk pancakes",
             "image": "https://www.justataste.com/wp-content/uploads/2015/07/light-and-fluffy-buttermilk-pancakes.jpg",
             "price": 2.50,
-            "description": "Our signature house-made buttermilk pancake, topped with whipped butter and served with Slopeside Pure Vermont Maple Syrup."
+            "description": "Our signature house-made buttermilk pancake, topped with whipped butter and served with Slopeside Pure Vermont Maple Syrup.",
+            "amountInCart": 0
         },
         {
             "id": 9,
@@ -71,7 +79,8 @@
             "name": "Pizza",
             "image": "https://images.pexels.com/photos/1260968/pexels-photo-1260968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "price": 6.90,
-            "description": "Prosciutto di Parma, black truffle burrata, and Wisconsin mozzarella cheese topped with fresh arugula and a drizzle of Sicilian extra-virgin olive oil."
+            "description": "Prosciutto di Parma, black truffle burrata, and Wisconsin mozzarella cheese topped with fresh arugula and a drizzle of Sicilian extra-virgin olive oil.",
+            "amountInCart": 0
         },
         {
             "id": 10,
@@ -79,7 +88,8 @@
             "name": "Smoked Salmon",
             "image": "https://images.pexels.com/photos/262959/pexels-photo-262959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "price": 16.90,
-            "description": "Fillets of salmon that have been flavored with the smoke from burning aromatic hardwoods. The smoke from the smoldering wood gives the salmon a distinctive smoky flavor and a fine texture. Salmon are typically either cold or hot smoked which provides a different taste and texture to the meat."
+            "description": "Fillets of salmon that have been flavored with the smoke from burning aromatic hardwoods. The smoke from the smoldering wood gives the salmon a distinctive smoky flavor and a fine texture. Salmon are typically either cold or hot smoked which provides a different taste and texture to the meat.",
+            "amountInCart": 0
         },
         {
             "id": 11,
@@ -87,7 +97,8 @@
             "name": "Spaghetti",
             "image": "https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "price": 5.90,
-            "description": "Basil is a mere garnish in this nutty, cheesy, peak season pesto sauce. This pasta is excellent alongside a few glasses of cold white wine. Seek out bright yellow zucchini such as Gold Bar for the sunniest color."
+            "description": "Basil is a mere garnish in this nutty, cheesy, peak season pesto sauce. This pasta is excellent alongside a few glasses of cold white wine. Seek out bright yellow zucchini such as Gold Bar for the sunniest color.",
+            "amountInCart": 0
         },
         {
             "id": 12,
@@ -95,7 +106,8 @@
             "name": "Sushi",
             "image": "https://images.pexels.com/photos/670705/pexels-photo-670705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "price": 14.90,
-            "description": "Sushi is a traditional Japanese rice meal made of cooked rice seasoned with vinegar and served cold with vegetables, eggs, or raw seafood toppings. The rice is placed on top of the maki-zushi, which is then topped with fish or vegetables and finished with a seaweed garnish."
+            "description": "Sushi is a traditional Japanese rice meal made of cooked rice seasoned with vinegar and served cold with vegetables, eggs, or raw seafood toppings. The rice is placed on top of the maki-zushi, which is then topped with fish or vegetables and finished with a seaweed garnish.",
+            "amountInCart": 0
         },
         {
             "id": 13,
@@ -103,7 +115,8 @@
             "name": "Vegetables salad",
             "image": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             "price": 4.50,
-            "description": "Crisp Hearts of Romaine Tossed in Robust Caesar Dressing Topped with Herbed Croutons & Parmesan Cheese"
+            "description": "Crisp Hearts of Romaine Tossed in Robust Caesar Dressing Topped with Herbed Croutons & Parmesan Cheese",
+            "amountInCart": 0
         }
     ]
 }
