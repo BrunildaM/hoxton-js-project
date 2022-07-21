@@ -130,10 +130,10 @@ function renderSingleProduct(mainEl:HTMLElement){
   let sectionSingleProduct = document.createElement("section");
   sectionSingleProduct.className = "single-product-section";
 
-  let buttonBack = document.createElement("button");
-  buttonBack.className = "back-button";
-  buttonBack.textContent= '⬅Back'
-  buttonBack.addEventListener ('click', function (){
+  let orderButtonEl = document.createElement("button");
+  orderButtonEl.className = "order-button-El";
+  orderButtonEl.textContent= 'ORDER'
+  orderButtonEl.addEventListener ('click', function (){
 
     state.selectedProduct = null
 
@@ -172,7 +172,7 @@ function renderSingleProduct(mainEl:HTMLElement){
 
 
   
-  sectionSingleProduct.append(buttonBack, singleElWrapper)
+  sectionSingleProduct.append(orderButtonEl, singleElWrapper)
   mainEl.append(sectionSingleProduct)
 }
 
