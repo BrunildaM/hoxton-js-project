@@ -216,14 +216,19 @@ input:checked + .slider:before {
   bottom: 20px;
   right: 5%;
   transition: transform .2s;
+  padding: 1rem;
+  border: 2px solid #9f650d; 
 }
 
 
 
 
 
-.product-list {
+
+.cart-product-list {
   list-style: none;
+  margin-bottom: 1rem;
+
 }
 
 
@@ -244,26 +249,30 @@ input:checked + .slider:before {
 }
 
 
-.cart__total-price {
-  background-color: blue;
-}
+
 
 .close-button {
   margin-left: 2rem;
-  color: rgb(176, 49, 40);
-  padding: 0.25rem;
+  /* color: rgb(176, 49, 40); */
+  /* padding: 0.25rem; */
+  width: 30px;
 }
 
 
 .product-productId{
   padding: 0.2rem;
-  color: rgb(183, 163, 47);
-  border-radius: 4px;
-
-
+  color: rgb(183, 47, 47);
+  border: none;
+  font-weight: bold;
 }
-.cart__body{
-  display: grid;
 
 
+
+.cart__price {
+  padding-left: 1rem;
+}
+
+.cart__delete-item {
+  text-decoration: none;
+  display: inline;
 }

@@ -300,8 +300,7 @@ function changeMode() {
 
 function renderCart(mainEl: HTMLElement) {
 
-
-
+  
   if (state.cartOpen) {
 
     let cartContentDiv = document.createElement('div')
@@ -324,7 +323,7 @@ function renderCart(mainEl: HTMLElement) {
     cartBodyDiv.className = 'cart__body'
 
     let bodyList = document.createElement('ul')
-    bodyList.className = 'product-list'
+    bodyList.className = 'cart-product-list'
 
     for (const product of getInCart()) {
 
@@ -347,6 +346,8 @@ function renderCart(mainEl: HTMLElement) {
       productPriceSpan.className = 'cart__price'
       productPriceSpan.textContent = `£${product.price}`
 
+      cartProductName.append(productPriceSpan)
+
 
 
       let deleteProductDiv = document.createElement('div')
@@ -355,7 +356,7 @@ function renderCart(mainEl: HTMLElement) {
       let deleteProductLink = document.createElement('a')
       deleteProductLink.href = '#0'
       deleteProductLink.className = 'cart__delete-item'
-      deleteProductLink.textContent = 'Delete'
+      deleteProductLink.textContent = 'Remove'
 
       deleteProductDiv.append(deleteProductLink)
 
@@ -372,7 +373,7 @@ function renderCart(mainEl: HTMLElement) {
 
       let labelQuantity = document.createElement('button')
       labelQuantity.className = 'product-productId'
-      labelQuantity.textContent = `${product.amountInCart}` 
+      labelQuantity.textContent = `${product.amountInCart} in cart` 
 
       labelQuantity.addEventListener('click', function () {
         addProductToCart(product)
@@ -386,7 +387,12 @@ function renderCart(mainEl: HTMLElement) {
 
       productQuantity.append(labelQuantity)
 
-      bodyListItem.append(productImageCart, cartProductName, productPriceSpan, deleteProductDiv, productQuantity)
+      deleteProductDiv.append(productQuantity)
+
+      
+
+
+      bodyListItem.append(productImageCart, cartProductName, deleteProductDiv)
       bodyList.append(bodyListItem)
 
       cartBodyDiv.append(bodyList)
@@ -397,14 +403,15 @@ function renderCart(mainEl: HTMLElement) {
       let cartFotter = document.createElement('div')
       cartFotter.className = 'cart__footer'
 
+
       let cartPrice = document.createElement('h2')
       cartPrice.className = 'cart__total-price'
       cartPrice.textContent = 'Total Price £' + getTotalPrice().toFixed(2)
     
 
-      let cartButton = document.createElement('button')
+      let cartButton = document.createElement('img')
       cartButton.className = 'close-button'
-      cartButton.textContent = 'X'
+      cartButton.src = 'https://cdn-icons-png.flaticon.com/512/45/45332.png'
       cartButton.addEventListener('click', function () {
         state.cartOpen = false
         render()
