@@ -42,6 +42,7 @@ function getInCart() {
   return state.cart.filter(product => product.amountInCart > 0)
 }
 
+
 function getTotalPrice() {
   let total = 0
   for (const product of getInCart()) {
@@ -300,7 +301,10 @@ function changeMode() {
 }
 
 
+
 function renderCart(mainEl: HTMLElement) {
+
+
 
   if (state.cartOpen) {
 
@@ -370,11 +374,18 @@ function renderCart(mainEl: HTMLElement) {
       let productQuantity = document.createElement('div')
       productQuantity.className = 'cd-cart__quantity'
 
-      let labelQuantity = document.createElement('label')
+      let labelQuantity = document.createElement('button')
       labelQuantity.className = 'product-productId'
       labelQuantity.textContent = `${product.amountInCart}` 
 
-      addProductToCart(product)
+      labelQuantity.addEventListener('click', function () {
+        addProductToCart(product)
+
+        render()
+
+      }) 
+
+      
 
 
       productQuantity.append(labelQuantity)
@@ -491,3 +502,6 @@ getMenuProducts().then(function (menu) {
   state.menu = menu
   render()
 })
+
+
+window.state = state
