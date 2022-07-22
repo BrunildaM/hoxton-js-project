@@ -37,37 +37,32 @@ function getMenuProducts() {
   return fetch('http://localhost:3005/menu').then(resp => resp.json())
 }
 
-function getInCart(){
+function getInCart() {
 
-  return state.menu.filter(product => product.amountInCart > 0)
+  return state.cart.filter(product => product.amountInCart > 0)
 }
 
-function getTotalPrice(){
-
+function getTotalPrice() {
   let total = 0
-  for (const product of getInCart()){
+  for (const product of getInCart()) {
     total += product.amountInCart * product.price
-    
-    
   }
 
   return total
-
-  
 }
 
-function addProductToCart(product:Product){
 
-product.amountInCart++
 
+function addProductToCart(product: Product) {
+  product.amountInCart++
 }
 
-function removeProductFromCart(product:Product){
+
+
+function removeProductFromCart(product: Product) {
 
   if (product.amountInCart > 0)
-  product.amountInCart--
-
-
+    product.amountInCart--
 }
 
 
@@ -189,7 +184,7 @@ function renderSingleProduct(mainEl: HTMLElement) {
     //@ts-ignore
 
     state.cart.push(state.selectedProduct)
-    // getInCart()
+  
 
     render()
 
@@ -364,16 +359,23 @@ function renderCart(mainEl: HTMLElement) {
 
       deleteProductDiv.append(deleteProductLink)
 
-      deleteProductDiv.addEventListener('click', function () {
-        console.log('mos harro te fshish produktin nga cart')
+      deleteProductLink.addEventListener('click', function () {
+        removeProductFromCart(product)
+
+        render()
       })
+
+
 
       let productQuantity = document.createElement('div')
       productQuantity.className = 'cd-cart__quantity'
 
       let labelQuantity = document.createElement('label')
       labelQuantity.className = 'product-productId'
-      labelQuantity.textContent = 'Quantity'
+      labelQuantity.textContent = `${product.amountInCart}` 
+
+      addProductToCart(product)
+
 
       productQuantity.append(labelQuantity)
 
@@ -390,9 +392,8 @@ function renderCart(mainEl: HTMLElement) {
 
       let cartPrice = document.createElement('h2')
       cartPrice.className = 'cart__total-price'
-      cartPrice.textContent = `Total Price £0`
-
-      
+      cartPrice.textContent = 'Total Price £' + getTotalPrice().toFixed(2)
+    
 
       let cartButton = document.createElement('button')
       cartButton.className = 'close-button'
@@ -403,8 +404,9 @@ function renderCart(mainEl: HTMLElement) {
       })
 
 
-      cartFotter.append(cartPrice, cartButton)
+      cartPrice.append(cartButton)
 
+      cartFotter.append(cartPrice)
 
       cartDiv.append(cartHeader, cartBodyDiv, cartFotter)
 
@@ -489,4 +491,3 @@ getMenuProducts().then(function (menu) {
   state.menu = menu
   render()
 })
-

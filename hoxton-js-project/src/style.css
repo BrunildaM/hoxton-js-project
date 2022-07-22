@@ -210,6 +210,7 @@ input:checked + .slider:before {
 }
 
 
+
 .cart-content {
   position: fixed;
   bottom: 20px;
@@ -217,10 +218,7 @@ input:checked + .slider:before {
   transition: transform .2s;
 }
 
-/* .cart__body {
-  display: grid;
-  grid-auto-flow: column;
-} */
+
 
 
 
@@ -245,5 +243,15 @@ input:checked + .slider:before {
   object-fit: cover;
 }
 
+
+.cart__total-price {
+  background-color: blue;
+}
+
+.close-button {
+  margin-left: 2rem;
+  color: rgb(176, 49, 40);
+  padding: 0.25rem;
+}
 
 
