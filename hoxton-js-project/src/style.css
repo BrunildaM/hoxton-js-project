@@ -255,3 +255,15 @@ input:checked + .slider:before {
 }
 
 
+.product-productId{
+  padding: 0.2rem;
+  color: rgb(183, 163, 47);
+  border-radius: 4px;
+
+
+}
+.cart__body{
+  display: grid;
+
+
+}
