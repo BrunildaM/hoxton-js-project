@@ -16,7 +16,6 @@ type State = {
   typeFilters: string[],
   selectedFilter: string,
   selectedProduct: Product | null
-  cart: Product[]
   cartOpen: boolean
 }
 
@@ -27,7 +26,6 @@ let state: State = {
   typeFilters: ['All', 'Breakfast', 'Lunch', 'Dinner', 'Shakes'],
   selectedFilter: '',
   selectedProduct: null,
-  cart: [],
   cartOpen: false
 }
 
@@ -39,7 +37,7 @@ function getMenuProducts() {
 
 function getInCart() {
 
-  return state.cart.filter(product => product.amountInCart > 0)
+  return state.menu.filter(product => product.amountInCart > 0)
 }
 
 
@@ -55,6 +53,7 @@ function getTotalPrice() {
 
 
 function addProductToCart(product: Product) {
+  if(!product) return
   product.amountInCart++
 }
 
@@ -153,6 +152,7 @@ function renderHeader() {
 
 function renderSingleProduct(mainEl: HTMLElement) {
 
+
   let sectionSingleProduct = document.createElement("section");
   sectionSingleProduct.className = "single-product-section";
 
@@ -180,12 +180,8 @@ function renderSingleProduct(mainEl: HTMLElement) {
   orderButtonEl.className = "order-button-El";
   orderButtonEl.textContent = 'ORDER'
   orderButtonEl.addEventListener('click', function () {
-
-
-    //@ts-ignore
-
-    state.cart.push(state.selectedProduct)
-  
+  //@ts-ignore
+  addProductToCart(state.selectedProduct)
 
     render()
 
@@ -330,7 +326,7 @@ function renderCart(mainEl: HTMLElement) {
     let bodyList = document.createElement('ul')
     bodyList.className = 'product-list'
 
-    for (const product of state.cart) {
+    for (const product of getInCart()) {
 
       let bodyListItem = document.createElement('li')
       bodyListItem.className = 'cart__product'
